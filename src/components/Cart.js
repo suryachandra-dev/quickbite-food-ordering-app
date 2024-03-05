@@ -8,14 +8,13 @@ const Cart = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
     dispatch(cartCount(-100000));
-    console.log('clearCart');
+    console.log("clearCart");
   };
 
   const cartItems = useSelector((store) => store.cart.cartItems);
 
   return (
     <div className="text-center m-4 p-4">
-      
       <div className="w-6/12 mx-auto">
         {cartItems.length !== 0 && (
           <button
@@ -25,36 +24,16 @@ const Cart = () => {
             Clear Cart
           </button>
         )}
-
         {cartItems.length === 0 && (
-          <div className="text-gray-600">
-           <div className="flex items-center justify-center mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-20 w-20 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 19c0 1.1.9 2 2 2s2-.9 2-2"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 10V5a1 1 0 011-1h4a1 1 0 011 1v5"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M16 10.5V21H8V10.5"
-                />
-              </svg>
+          <div className="text-gray-600 ">
+            <p className=" bg-white  flex justify-center h-[1px]  absolute ">
+            
+            </p>
+            <div className=" flex justify-center ">
+           <img className="w-72  " src='https://cdn.iconscout.com/icon/free/png-512/free-trolley-1676499-1428851.png?f=webp&w=512' alt='Empty Cart'/>
+           
+            </div>
+            <div>
               <p className="text-2xl font-bold">Your cart is empty</p>
             </div>
             <p className="text-lg">

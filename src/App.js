@@ -1,11 +1,17 @@
 import React from "react";
-import React, { lazy, Suspense, useEffect, useState ,createContext} from "react";
+import React, {
+  lazy,
+  Suspense,
+  useEffect,
+  useState,
+  createContext,
+} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import About from './components/About.js';
-import Grocery from './components/Grocery.js';
+import About from "./components/About.js";
+import Grocery from "./components/Grocery.js";
 import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
 import { Outlet } from "react-router-dom";
@@ -13,8 +19,8 @@ import RestaurantMenu from "./components/RestaurantMenu.js";
 import UserContext from "./components/UserContext.js";
 import { Provider } from "react-redux";
 import appStore from "./components/utils/appStore.js";
-import Cart from './components/Cart.js';
-
+import Cart from "./components/Cart.js";
+import Footer from "./components/Footer.js";
 export const Context1 = createContext();
 //Chunking
 //Code Splitting
@@ -23,13 +29,12 @@ export const Context1 = createContext();
 //On Demand Loading
 //Dynamic import
 
-
 // const Grocery = lazy(() => import("./components/Grocery.js"));
 // const About = lazy(() => import("./components/About.js"));
 const AppLayout = () => {
   //Authentication code
-  const [userName, setUserName] = useState('');
-  const [myArray, setMyArray] = useState(['one element']);
+  const [userName, setUserName] = useState("");
+  const [myArray, setMyArray] = useState(["one element"]);
   const [isClicked, setIsClicked] = useState(false);
   const [handleHomeButtonClick, setHandleHomeButtonClick] = useState(false);
   useEffect(() => {
@@ -41,14 +46,25 @@ const AppLayout = () => {
   }, []);
   return (
     <Provider store={appStore}>
-    <UserContext.Provider value={{ loggedInUser: userName,setUserName ,handleHomeButtonClick,setHandleHomeButtonClick}}>
-      <div className="app">
+      <UserContext.Provider
+        value={{
+          loggedInUser: userName,
+          setUserName,
+          handleHomeButtonClick,
+          setHandleHomeButtonClick,
+        }}
+      >
+        <div className="app">
           <Header />
-        <Context1.Provider value={{myArray,isClicked,setIsClicked,setMyArray}} >
-        <Outlet />
-        </Context1.Provider>,
-      </div>
-    </UserContext.Provider>
+          <Context1.Provider
+            value={{ myArray, isClicked, setIsClicked, setMyArray }}
+          >
+            <Outlet />
+          </Context1.Provider>
+        </div>
+      </UserContext.Provider>
+      <Footer />
+
     </Provider>
   );
 };
@@ -66,7 +82,7 @@ const appRouter = createBrowserRouter([
         path: "/about",
         element: (
           // <Suspense fallback={<h1>Loading.....</h1>}>
-            <About />
+          <About />
           //  </Suspense>
         ),
       },
@@ -78,18 +94,17 @@ const appRouter = createBrowserRouter([
         path: "/grocery",
         element: (
           // <Suspense fallback={<h1>Loading.....</h1>}>
-            <Grocery />
+          <Grocery />
           //  </Suspense>
         ),
       },
       {
         path: "/restaurant/:resId",
-        element:
-        <RestaurantMenu />
+        element: <RestaurantMenu />,
       },
       {
-        path:'/cart',
-        element:<Cart />
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

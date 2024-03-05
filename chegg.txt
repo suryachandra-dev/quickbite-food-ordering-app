@@ -1,6 +1,0 @@
-**Step 8 Explanation:**
-
-In this step, we calculate the normalization constant for the wavefunction \(\Psi(x, t)) using the condition:
- \int_{0}^{L} |\Psi(x, t)|^2 \, dx = 1 
-
-The normalization constant ensures that the total probability of finding the particle in the box is equal to 1. By integrating the squared magnitude of the wavefunction over the entire space (from 0 to \(L)), we normalize the wavefunction to represent a valid probability distribution. This step is crucial in ensuring that the physical interpretation of the wavefunction, as a probability amplitude, is consistent with quantum mechanics principles.

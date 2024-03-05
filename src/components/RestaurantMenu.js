@@ -5,6 +5,7 @@ import useRestaurantMenu from "./utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useContext } from "react";
 import { Context1 } from "../App";
+import RestaurantMenuShimmer from "./RestaurantMenuShimmer";
 const RestaurantMenu = () => {
   const [showIndex, setShowIndex] = useState(null);
   const context = useContext(Context1);
@@ -13,8 +14,8 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
   console.log(resInfo);
-  if (resInfo === null) {
-    return <Shimmer />;
+  if (!resInfo) {
+    return <RestaurantMenuShimmer/>;
   } else {
     const  grouped=
       resInfo?.data?.cards;
