@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import ItemList from "./ItemList";
 import { clearCart, cartCount } from "./utils/cartSlice";
-
+import { CART_URL } from "./utils/constants";
 const Cart = () => {
   const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ const Cart = () => {
             
             </p>
             <div className=" flex justify-center ">
-           <img className="w-72  " src='https://cdn.iconscout.com/icon/free/png-512/free-trolley-1676499-1428851.png?f=webp&w=512' alt='Empty Cart'/>
+           <img className="w-72  " src={CART_URL} alt='Empty Cart'/>
            
             </div>
             <div>
