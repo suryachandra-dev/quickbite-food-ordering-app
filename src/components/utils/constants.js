@@ -7,3 +7,4 @@ export const LOGO_URL='https://s3.amazonaws.com/cdn.designcrowd.com/blog/39-Food
 
 // export const MENU_API_URL='https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.4107978&lng=78.341552&restaurantId=';
 export const MENU_API_URL='https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=';
+export const CART_URL='https://cdn.iconscout.com/icon/free/png-512/free-trolley-1676499-1428851.png?f=webp&w=512';
